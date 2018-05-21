@@ -1,0 +1,8 @@
+[Unit]
+Conflicts=timelapse-off.service
+
+[Service]
+User=pi
+Environment=TIMELAPSE=600000
+EnvironmentFile=-/home/pi/timelapse.conf
+ExecStart=/usr/local/bin/timelapse

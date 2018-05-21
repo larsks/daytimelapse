@@ -1,0 +1,6 @@
+[Unit]
+Conflicts=timelapse.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/true

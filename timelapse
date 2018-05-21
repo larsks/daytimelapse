@@ -1,0 +1,10 @@
+#!/bin/bash
+
+: ${PHOTOBASE:=$HOME/photos}
+: ${TIMELAPSE:=600000}
+
+TODAY=$(date +%Y-%m-%d)
+PHOTOS=$PHOTOBASE/$TODAY
+
+mkdir -p $PHOTOS
+/usr/bin/raspistill -o $PHOTOS/photo-%d.jpg -tl $TIMELAPSE
