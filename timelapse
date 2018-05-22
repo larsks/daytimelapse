@@ -14,4 +14,7 @@ TODAY=$(date +%Y-%m-%d)
 PHOTOS=$PHOTOBASE/$TODAY
 
 mkdir -p $PHOTOS
-/usr/bin/raspistill -o $PHOTOS/photo-$(date +%Y%m%dT%H%M%S)-%04d.jpg -t 0 -tl $INTERVAL
+
+# raspistill won't take the first photo until after $INTERVAL has elapsed
+/usr/bin/raspistill -o $PHOTOS/photo-$(date +%Y%m%dT%H%M%S)-0000.jpg
+/usr/bin/raspistill -o $PHOTOS/photo-$(date +%Y%m%dT%H%M%S)-1%03d.jpg -t 0 -tl $INTERVAL
