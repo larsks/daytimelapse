@@ -11,5 +11,5 @@ if [ -z "$PHOTOBASE" ]; then
 fi
 
 cd $PHOTOBASE
-drive push -quiet -destination $REMOTEDIR -no-clobber .
+drive push -no-prompt -destination $REMOTEDIR -no-clobber .
 
