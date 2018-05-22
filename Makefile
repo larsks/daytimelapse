@@ -8,7 +8,8 @@ TIMERS =   timelapse.timer \
 	   timelapse-off.timer
 UNITS = $(SERVICES) $(TIMERS)
 
-SCRIPTS = timelapse
+SCRIPTS = timelapse \
+	  timelapse-upload
 		
 all:
 
