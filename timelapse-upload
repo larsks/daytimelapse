@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ -z "$REMOTEDIR" ]; then
+	echo "missing REMOTEDIR setting" >&2
+	exit 1
+fi
+
+if [ -z "$PHOTOBASE" ]; then
+	echo "missing PHOTOBASE setting" >&2
+	exit 1
+fi
+
+cd $PHOTOBASE
+drive push -quiet -destination $REMOTEDIR -no-clobber .
+
