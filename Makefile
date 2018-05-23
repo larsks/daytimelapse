@@ -2,14 +2,13 @@ prefix = /usr/local
 bindir = $(prefix)/bin
 
 SERVICES = \
-	   timelapse.service \
-	   timelapse-off.service
-TIMERS =   timelapse.timer \
-	   timelapse-off.timer
+	   timelapse.service
+
+TIMERS =   timelapse.timer
+
 UNITS = $(SERVICES) $(TIMERS)
 
-SCRIPTS = timelapse \
-	  timelapse-upload
+SCRIPTS = timelapse
 		
 all:
 

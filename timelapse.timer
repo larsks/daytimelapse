@@ -1,5 +1,5 @@
 [Timer]
-OnCalendar=5:00
+OnCalendar=05..20:0/30
 
 [Install]
 WantedBy=timers.target

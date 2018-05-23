@@ -5,16 +5,16 @@ if [ -z "$PHOTOBASE" ]; then
 	exit 1
 fi
 
-if [ -z "$INTERVAL" ]; then
-	echo "missing INTERVAL setting" >&2
-	exit 1
-fi
-
 TODAY=$(date +%Y-%m-%d)
-PHOTOS=$PHOTOBASE/$TODAY
+PHOTODIR=$PHOTOBASE/$TODAY
+PHOTO=$PHOTODIR/photo-$(date +%Y%m%dT%H%M).jpg
 
-mkdir -p $PHOTOS
+mkdir -p $PHOTODIR
 
-# raspistill won't take the first photo until after $INTERVAL has elapsed
-/usr/bin/raspistill -o $PHOTOS/photo-$(date +%Y%m%dT%H%M%S)-0000.jpg
-/usr/bin/raspistill -o $PHOTOS/photo-$(date +%Y%m%dT%H%M%S)-1%03d.jpg -t 0 -tl $INTERVAL
+echo "taking a photo"
+/usr/bin/raspistill -o $PHOTO
+
+echo "uploading to google drive"
+drive push -no-prompt -no-clobber \
+	${REMOTEDIR:+-destination $REMOTEDIR} \
+	$PHOTOBASE

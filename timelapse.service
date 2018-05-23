@@ -2,7 +2,7 @@
 Conflicts=timelapse-off.service
 
 [Service]
+Type=oneshot
 User=pi
 EnvironmentFile=/home/pi/timelapse.conf
 ExecStart=/usr/local/bin/timelapse
-ExecStopPost=/usr/local/bin/timelapse-upload
